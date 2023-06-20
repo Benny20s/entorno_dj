@@ -8,18 +8,55 @@
 </head>
 
 <body>
-    <div>
-        <ul>
-            <li>
-                <a href=""></a>
-            </li>
-            <li>
-                <a href=""></a>
-            </li>
-            <li>
-                <a href=""></a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-sm bg-white navbar-dark">
+        <div class="container-fluid">
+            <div id="ic">
+                <i class="bi bi-envelope-at-fill"> scrantonshop@gmail.cl</i>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-sm p-0">
+        <div id="nav" class="container-fluid">
+            <a id="titu" class="navbar-brand" href="Dunder.html">Scranton Shop</a>
+            <div class="container-fluid">
+                <ul class="nav justify-content-around navbar-collapse">
+                    <li class="nav-item">
+                        <a id="navli" class="nav-link" href="poleras.html">Poleras</a>
+                    </li>
+                    <li>
+                        <a id="navli" class="nav-link" href="polerones.html">Polerones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="navli" class="nav-link" href="funkos.html">Funko Pop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="navli" class="nav-link" href="mas.html">Más</a>
+                    </li>
+                    <ul class="navbar-nav">
+                        <li>
+                            <a href="compra.html" class="nav-link"><i id="icon" class="bi bi-bag navbar-brand"></i></a>
+                        </li>
+                        <li>
+                            <a href="Cuenta.html" class="nav-link"><i id="icon" class="bi bi-person-circle"></i></a>
+                        </li>
+                        <li>
+                            <a href="Administracion.html" class="nav-link"><i id="icon"
+                                    class="bi bi-pencil-fill"></i></a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="contenido">
+
+    {% block  contenido%}
+    {% endblock  %}
+    
     </div>
+
+    <footer>
+    
+    </footer>
 </body>
 </html>
