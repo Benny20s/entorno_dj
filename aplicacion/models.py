@@ -10,14 +10,14 @@ class poleras(models.Model):
     color=models.CharField(max_length=20)
 
 
-class Polerones(models.Model):
+class polerones(models.Model):
     id=models.IntegerField(primary_key=True)
     precio=models.IntegerField()
     nombre=models.CharField(max_length=50)
     descripcion=models.CharField(max_length=100)
     color=models.CharField(max_length=20)
 
-class Funko(models.Model):
+class funko(models.Model):
     id=models.IntegerField(primary_key=True)
     precio=models.IntegerField()
     nombre=models.CharField(max_length=50)
