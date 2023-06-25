@@ -23,6 +23,12 @@ class funko(models.Model):
     nombre=models.CharField(max_length=50)
     descripcion=models.CharField(max_length=100)
 
+class mas(models.Model):
+    id=models.IntegerField(primary_key=True)
+    precio=models.IntegerField()
+    nombre=models.CharField(max_length=50)
+    descripcion=models.CharField(max_length=100)
+
 
     
 

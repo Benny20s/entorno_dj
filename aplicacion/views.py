@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import poleras, polerones, funko
+from .models import poleras, polerones, funko, mas
 
 # Create your views here.
 
@@ -29,3 +29,11 @@ def Funko(request):
         "funko": Funko
     }
     return render(request, 'aplicacion/funko.html', contexto)
+
+def Mas(request):
+    Mas=mas.objects.all()
+
+    contexto={
+        "mas": Mas
+    }
+    return render(request, 'aplicacion/mas.html', contexto)
