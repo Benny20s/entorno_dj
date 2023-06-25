@@ -1,0 +1,20 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+
+<h1>funko</h1> {% comment %} Borrar despues {% endcomment %}
+{%for fun in Funko %}
+
+<div class="row justify-content-center ">
+    <div class="card papel" style="width: 20vw;">
+        <div class="card-body">
+            <h5 class="card-title">{{fun.nombre}}</h5>
+            <p class="card-text">{{fun.descripcion}}</p>
+            <a href="compra.html" class="btn btn-primary">Comprar</a>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{% endblock contenido %}
