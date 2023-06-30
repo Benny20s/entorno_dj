@@ -34,36 +34,28 @@
                 <h2>Crear cuenta</h2>
             </div>
         </div>
-        <form id="form" class="form">
+        <form id="form" class="form" method="POST">
+            {% csrf_token %}
             <div class="form-control">
                 <label for="username">Usuario</label>
-                <input type="text" placeholder="grovervas" id="username" />
+                <input type="text" name='username' placeholder="grovervas" id="username" />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+                <small>{{msg}}</small>
             </div>
             <div class="form-control">
                 <label for="email">Email</label>
-                <input type="email" placeholder="grovervas@email.com" id="email" />
+                <input type="email" placeholder="grovervas@email.com" id="email" name='email'/>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
             </div>
             <div class="form-control">
                 <label for="password">Password</label>
-                <input type="password" placeholder="Password" id="password" />
+                <input type="password" placeholder="Password" id="password" name='password' />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
             </div>
-            <div class="form-control">
-                <label for="password2">Repetir password</label>
-                <input type="password" placeholder="Password dos" id="password2" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
-            </div>
-            <button>Submit</button>
+            <input type="submit" value="Registrar">
         </form>
     </div>
 </html>

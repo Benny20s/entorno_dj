@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import poleras, polerones, funko, mas
+from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
 
@@ -39,8 +41,36 @@ def Mas(request):
     return render(request, 'aplicacion/mas.html', contexto)
 
 def Cuenta(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        usr = authenticate(username=username, password=password)
+        
+        if usr is not None:
+            login(request, usr)
+            return redirect('inicio')
     return render(request, 'aplicacion/registration/cuenta.html')
 
 
 def CrearCuenta(request):
-    return render(request, 'aplicacion/registration/crearcuenta.html')
+    contexto = {
+        'msg': ''
+    }
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        if User.objects.filter(username=username).exists():
+            contexto['msg'] = 'El usuario ingresado ya existe'
+        else:
+            usr = User()
+            usr.username = username
+            usr.set_password(password)
+            
+            usr.save()
+            
+            login(request, usr)
+            return redirect('inicio')
+        
+    return render(request, 'aplicacion/registration/crearcuenta.html', contexto)

@@ -11,16 +11,17 @@
             <div class="row">
                 <div class="col p-3 text-center">
                     <h3>Ingresar</h3>
-                    <form id="form" class="form">
+                    <form id="form" class="form" method='POST'>
+                        {% csrf_token %}
                         <div class="form-control mb-3 mt-3">
-                            <label for="email" class="form-label">Email:</label>
+                            <label for="username" class="form-label">Usuario:</label>
                             <br>
-                            <input type="text" id="email" placeholder="hola@gmail.com" name="email">
+                            <input type="text" id="username" placeholder="Usuario1234" name="username">
                             <br>
                         </div>
                         <div class="form-control  mb-3">
-                            <label for="pwd" class="form-label">Contraseña:</label>
-                            <input type="password" id="pwd" placeholder="Enter password" name="pswd">
+                            <label for="password" class="form-label">Contraseña:</label>
+                            <input type="password" id="password" placeholder="Enter password" name="password">
                         </div>
                         <div class="form-check mb-3">
                             <label class="form-check-label">
@@ -28,7 +29,7 @@
                             </label>
                             <a href="#" class="p-3">¿Olvido su contraseña?</a>
                         </div>
-                        <button>Registrarse</button>
+                        <input type="submit" value="Ingresar">
                     </form>
                 </div>
                 <div class="col p-3 justify-content-center text-center">
