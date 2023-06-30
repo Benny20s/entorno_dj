@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import inicio, Poleras, Polerones, Funko, Mas, Cuenta
+from .views import inicio, Poleras, Polerones, Funko, Mas, Cuenta, CrearCuenta
 
 urlpatterns = [
     path('',inicio, name="inicio" ),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('funko', Funko, name="funko"),
     path('mas', Mas, name="mas"),
     path('cuenta',Cuenta, name="cuenta"),
+    path('crearcuenta', CrearCuenta, name="crearcuenta"),
 ]
 

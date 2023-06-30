@@ -40,3 +40,7 @@ def Mas(request):
 
 def Cuenta(request):
     return render(request, 'aplicacion/registration/cuenta.html')
+
+
+def CrearCuenta(request):
+    return render(request, 'aplicacion/registration/crearcuenta.html')
