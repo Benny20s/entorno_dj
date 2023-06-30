@@ -8,20 +8,24 @@
     <h2  id="encab" class="text-center">Otros articulos de The Office</h2>
 </div>
 {% comment %} Borrar despues {% endcomment %}
-{%for m in Mas %}
+{%for m in mas %}
 
     <div class="row justify-content-center ">
         <div class="card papel" style="width: 20vw;">
+            <img src="img" class="card-img-top" alt="..." width="30vw">
             <div class="card-body">
                 <h5 class="card-title">{{m.nombre}}</h5>
-                <p class="card-text">{{m.descripcion}}</p>
-                <a href="compra.html" class="btn btn-primary">Comprar</a>
+                <p class="card-text"> ${{m.precio}}</p>
+
+                <input type="submit" value="Comprar" class="btn btn-primary">
+                <a href="#" class="btn btn-primary">Eliminar</a>
+                <a href="#" class="btn btn-primary">Modificar</a>
             </div>
         </div>
     </div>
 {%endfor%}
 
-<div class="container-fluid">
+{% comment %}<div class="container-fluid">
     <div class="row justify-content-center ">
         <div class="card papel" style="width: 20vw;">
             <img src="{% static 'aplicacion/imagenes/dundies.jpg' %}" class="card-img-top" alt="..." width="30vw">
@@ -64,7 +68,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>{% endcomment %}
 
 
 {% endblock contenido %}
