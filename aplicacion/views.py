@@ -37,3 +37,6 @@ def Mas(request):
         "mas": Mas
     }
     return render(request, 'aplicacion/mas.html', contexto)
+
+def Cuenta(request):
+    return render(request, 'aplicacion/registration/cuenta.html')

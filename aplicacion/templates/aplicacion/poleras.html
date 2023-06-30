@@ -4,18 +4,48 @@
 
 {% block contenido %}
 
-<h1>Poleras</h1> {% comment %} Borrar despues {% endcomment %}
-{%for pol in Poleras %}
+<div class="container-fluid p-4">
+    <h2  id="encab" class="text-center">Poleras</h2>
+</div>
+{% comment %} Borrar despues {% endcomment %}
+    <div class="container-fluid p-3">
+        <div class="row justify-content-center ">
+            <div class="card papel" style="width: 20vw;">
+                <img src="{% static 'aplicacion/imagenes/polera2.jpg' %}" class="card-img-top" alt="..." width="30vw" >
+                <div class="card-body">
+                    <h5 class="card-title">Polera Prision mike</h5>
+                    <p class="card-text">TALLAS: S-M-L Color Blanco Disponible $9.990.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
 
-    <div class="row justify-content-center ">
-        <div class="card papel" style="width: 20vw;">
-        <img class="card-img-top" src=" {% static "imagenes/polera.jpg" %}" alt="Prision mike">
-            <div class="card-body">
-                <h5 class="card-title">{{pol.nombre}}</h5>
-                <p class="card-text">{{pol.descripcion}}</p>
-                <a href="compra.html" class="btn btn-primary">Comprar</a>
+            <div class="card papel" style="width: 20vw;">
+                <img src="{% static 'aplicacion/imagenes/polera1.jpg' %}" class="card-img-top" alt="..." width="30vw" >
+                <div class="card-body">
+                    <h5 class="card-title">Polera Jim inspostor</h5>
+                    <p class="card-text">TALLAS: S-M-L Color Blanco Disponible $9.990.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+            <div class="card papel" style="width: 20vw;">
+                <img src="{% static 'aplicacion/imagenes/polera.jpg' %}" class="card-img-top" alt="..." width="30vw" >
+                <div class="card-body">
+                    <h5 class="card-title">Polera Salva vidas</h5>
+                    <p class="card-text">TALLAS: S-M-L Color Negro Disponible $9.990.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+            <div class="card papel" style="width: 20vw;">
+                <img src=" {% static 'aplicacion/imagenes/foto_parkur.png' %} " class="card-img-top" alt="..." width="30vw">
+                <div class="card-body">
+                    <h5 class="card-title">Polera Parkour unisex </h5>
+                    <p class="card-text">TALLAS: S-M-L Color blanco Disponible
+                        $9.990.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
             </div>
         </div>
+        </div>
     </div>
-{%endfor%}
+
 {% endblock contenido %}
