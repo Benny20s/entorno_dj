@@ -1,0 +1,45 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'aplicacion/css/listar.css'%}">
+{% endblock css %}
+
+
+{% block contenido %}
+
+    <div id="contenido">
+        <form action="" method="post">
+            <section class="cont">
+                <table>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Stock</th>    
+                        <th>Precio</th>
+                        <th>Descripcion</th>
+                        <th>Color</th>
+                    </tr>
+                    {% for %}
+                        <tr>
+                            <td>imagen</td>
+                            <td>nombre</td>
+                            <td>Tipo</td>
+                            <td>Stock</td>
+                            <td>Precio</td>
+                            <td>Descripcion</td>
+                            <td>Color</td>
+                            <td><a class="modificar" href="#">MODIFICAR</a> | <a class="eliminar" href="#">ELIMINAR</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <form action="#" method="get">
+                    {% csrf_token %}
+                    <input class="boton" type="submit" value="Nuevo Producto">
+                </form>
+            </section>
+        </form>
+    </div>
+
+{% endblock contenido %}

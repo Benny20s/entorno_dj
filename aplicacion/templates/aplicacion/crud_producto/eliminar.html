@@ -1,0 +1,22 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'aplicacion/css/agregar.css'%}">
+{% endblock css %}
+
+
+{% block contenido %}
+
+    <div id="contenido">
+        <form action="" method="post">
+            <section class="cont">
+                <h1>ELIMINAR</h1>
+                <h5>seguro que desea eliminar al usuario: </h5>
+                <input class="boton" type="button" value="Confirmar">
+                <input class="boton" type="button" value="Cancelar">
+            </section>
+        </form>
+    </div>
+
+{% endblock contenido %}
