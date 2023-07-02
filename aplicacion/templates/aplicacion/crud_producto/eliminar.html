@@ -10,11 +10,12 @@
 
     <div id="contenido">
         <form action="" method="post">
+            {% csrf_token %}
             <section class="cont">
                 <h1>ELIMINAR</h1>
-                <h5>seguro que desea eliminar al usuario: </h5>
-                <input class="boton" type="button" value="Confirmar">
-                <input class="boton" type="button" value="Cancelar">
+                <h5>seguro que desea eliminar el producto: {{p.nombre}} de tipo: {{p.tipo_producto}}</h5>
+                <input class="boton" type="submit" value="Confirmar">
+                <a href="{% url 'ListarProducto' %}"><input class="boton" type="button" value="Cancelar"></a>
             </section>
         </form>
     </div>

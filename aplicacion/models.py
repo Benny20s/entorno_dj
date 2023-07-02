@@ -12,12 +12,12 @@ class Producto(models.Model):
     imagen=models.CharField(max_length=500, null=False, blank=False)
     
     TIPO = [
-        ('F', 'FUNKO'),
-        ('PO', 'POLERON'),
-        ('PA', 'POLERAS'),
-        ('M', 'MAS')
+        ('FUNKO', 'FUNKO'),
+        ('POLERON', 'POLERON'),
+        ('POLERAS', 'POLERAS'),
+        ('MAS', 'MAS')
     ]
-    tipo_producto = models.CharField(null=False, blank=False, choices=TIPO, max_length=5)
+    tipo_producto = models.CharField(null=False, blank=False, choices=TIPO, max_length=20)
     def __str__(self):
         return str(f'{self.nombre}')
 

@@ -10,20 +10,21 @@
 
     <div id="contenido">
         <form action="" method="post">
+            {% csrf_token %}
             <section class="cont">
                 <h1>formulario de producto</h1>
                 <input class="texto" type="text" name="nombre" id="nombre" placeholder="ingrese el nombre del producto">
                 <select name="tipo" class="tipo">
-                    <option value="poleras">poleras</option>
-                    <option value="polerones">polerones</option>
-                    <option value="funkos">funkos</option>
-                    <option value="mas">mas</option>
+                    {% for t in tipo %}
+                        <option value="{{t.0}}">{{t.1}}</option>
+                    {% endfor %}
                 </select>
-                <inpu class="texto" type="number" name="precio" id="precio" placeholder="ingrese el precio">
+                <input class="texto" type="number" name="precio" id="precio" placeholder="ingrese el precio">
                 <input class="texto" type="text" name="desc" id="desc" placeholder="ingrese la descripcion">
                 <input class="texto" type="text" name="color" id="color" placeholder="ingrese el color">
                 <input class="texto" type="text" name="img" id="img" placeholder="ingrese el link de su imagen">
-                <input class="boton" type="button" value="Guardar">
+                {{msg}}
+                <input class="boton" type="submit" value="Guardar">
             </section>
         </form>
     </div>

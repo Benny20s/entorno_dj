@@ -78,31 +78,75 @@ def CrearCuenta(request):
 def EliminarProducto(request, id):
     producto = Producto.objects.get(id=id)
     
+    contexto = {
+        'p':producto
+    }
     if request.method == 'POST':
         producto.delete()
-        return redirect('inicio')
+        return redirect('ListarProducto')
     
-    return render(request, 'aplicacion/confirmacion.html')
+    return render(request, 'aplicacion/crud_producto/eliminar.html', contexto)
 
 def ModificarProducto(request, id):
     producto = Producto.objects.get(id=id)
+    tipo_producto = Producto.TIPO
     
     if request.method == 'POST':
         nombre = request.POST['nombre']
         precio = request.POST['precio']
-        desc = request.POST['descripcion']
+        tipo = request.POST['tipo']
+        desc = request.POST['desc']
         color = request.POST['color']
-        img = request.POST['imagen']
+        img = request.POST['img']
         
         producto.nombre = nombre
         producto.precio=precio
+        producto.tipo_producto = tipo
         producto.descripcion=desc
         producto.color=color
         producto.imagen=img
         producto.save()
-        return redirect('inicio')
+        return redirect('ListarProducto')
 
     contexto = {
-        'p': producto
+        'p': producto,
+        'tipo': tipo_producto
     }
-    return render(request, 'aplicacion/modificar_producto.html')
+    return render(request, 'aplicacion/crud_producto/modificar.html', contexto)
+
+def ListarProducto(request):
+    productos = Producto.objects.all()
+    
+    contexto = {
+        'producto': productos,
+    }
+    
+    return render(request, 'aplicacion/crud_producto/listar.html', contexto)
+
+def AgregarProducto(request):
+    tipo_producto = Producto.TIPO
+    contexto = {
+        'msg': '',
+        'tipo': tipo_producto
+    }
+    
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        tipo = request.POST['tipo']
+        precio = request.POST['precio']
+        desc = request.POST['desc']
+        color = request.POST['color']
+        img = request.POST['img']
+        
+        product = Producto()
+        product.nombre = nombre
+        product.tipo_producto = tipo
+        product.precio = precio
+        product.descripcion = desc
+        product.color = color
+        product.imagen = img
+        product.save()
+        
+        contexto['msg'] = 'Plato guardado correctamente'
+    
+    return render(request, 'aplicacion/crud_producto/agregar.html', contexto)

@@ -15,22 +15,20 @@
                     <tr>
                         <th>Imagen</th>
                         <th>Nombre</th>
-                        <th>Tipo</th>
-                        <th>Stock</th>    
+                        <th>Tipo</th>   
                         <th>Precio</th>
                         <th>Descripcion</th>
                         <th>Color</th>
                     </tr>
-                    {% for %}
+                    {% for p in producto %}
                         <tr>
-                            <td>imagen</td>
-                            <td>nombre</td>
-                            <td>Tipo</td>
-                            <td>Stock</td>
-                            <td>Precio</td>
-                            <td>Descripcion</td>
-                            <td>Color</td>
-                            <td><a class="modificar" href="#">MODIFICAR</a> | <a class="eliminar" href="#">ELIMINAR</a></td>
+                            <td><img src="{{p.imagen}}" alt="{{p.nombre}}"></td>
+                            <td>{{p.nombre}}</td>
+                            <td>{{p.tipo_producto}}</td>
+                            <td>{{p.precio}}</td>
+                            <td>{{p.descripcion}}</td>
+                            <td>{{p.color}}</td>
+                            <td><a class="modificar" href="{% url 'ModificarProducto' p.id %}">MODIFICAR</a> | <a class="eliminar" href="{% url 'EliminarProducto' p.id %}">ELIMINAR</a></td>
                         </tr>
                     {% endfor %}
                 </table>
