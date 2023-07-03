@@ -7,7 +7,19 @@
 <div class="container-fluid p-4">
     <h2  id="encab" class="text-center">Funkos</h2>
 </div>
-{% comment %} Borrar despues {% endcomment %}
+{%for fun in Funko %}
+
+<div class="row justify-content-center ">
+    <div class="card papel" style="width: 20vw;">
+        <div class="card-body">
+            <h5 class="card-title">{{fun.nombre}}</h5>
+            <p class="card-text">{{fun.descripcion}}</p>
+            <a href="compra.html" class="btn btn-primary">Comprar</a>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{% comment %}
 <div class="container-fluid">
     <div class="row justify-content-center ">
         <div class="card papel" style="width: 20vw;">
@@ -53,4 +65,5 @@
         </div>
     </div>
 </div>
+{% endcomment %}
 {% endblock contenido %}

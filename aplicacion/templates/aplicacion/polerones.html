@@ -7,7 +7,20 @@
 <div class="container-fluid p-4">
     <h2  id="encab" class="text-center">Polerones</h2>
 </div>
-{% comment %} Borrar despues {% endcomment %}
+{%for plr in Polerones %}
+
+<div class="row justify-content-center ">
+    <div class="card papel" style="width: 20vw;">
+    <img class="card-img-top" src=" {% static "imagenes/poleron1.jpg" %}" alt="lady-gaga">
+        <div class="card-body">
+            <h5 class="card-title">{{plr.nombre}}</h5>
+            <p class="card-text">{{plr.descripcion}}</p>
+            <a href="compra.html" class="btn btn-primary">Comprar</a>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{% comment %} 
 <div class="container-fluid">
     <div class="row justify-content-center ">
         <div class="card papel" style="width: 20vw;">
@@ -36,4 +49,5 @@
         </div>
     </div>
 </div>
+{% endcomment %}
 {% endblock contenido %}

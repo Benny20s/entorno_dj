@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href= "{% static 'aplicacion/css/est.css' %}">
+    <link rel="stylesheet" href= "{% static 'aplicacion/css/inic.css' %}">
     <link rel="stylesheet" href= "{% static 'aplicacion/css/navbar.css' %}">
     <link rel="stylesheet" href= "{% static 'aplicacion/css/tipografria.css' %}">
     <link rel="stylesheet" href= "{% static 'aplicacion/imagenes' %}">
@@ -20,7 +20,7 @@
     <title>Dunder Shop</title>
 </head>
 
-<body style="background-color: beige">
+<body style="background-color: #E6C7BD">
     <nav class="navbar navbar-expand-sm bg-white">
         <div class="container-fluid">
             <div id="ic">
@@ -30,9 +30,9 @@
     </nav>
     <nav class="navbar navbar-expand-sm p-0">
         <div id="nav" class="container-fluid">
-            <a id="titu" class="navbar-brand" href="{% url 'inicio' %}">Scrant on Shop</a>
+            <a id="titu" class="navbar-brand" href="{% url 'inicio' %}">Scranton Shop</a>
             <div class="container">
-                <ul class="nav justify-content-around">
+                <ul class="nav justify-content-around ">
                     <li class="nav-item">
                         <a id="navli" class="nav-link" href="{% url 'poleras' %}">Poleras</a>
                     </li>
@@ -40,7 +40,7 @@
                         <a id="navli" class="nav-link" href="{% url 'polerones' %}">Polerones</a>
                     </li>
                     <li class="nav-item">
-                        <a id="navli" class="nav-link" href="{% url 'funko' %}">Funko Pop</a>
+                        <a id="navli" class="nav-link" href="{% url 'funko' %}">Funko</a>
                     </li>
                     <li class="nav-item">
                         <a id="navli" class="nav-link" href="{% url 'mas' %}">Más</a>
