@@ -18,26 +18,26 @@
     <div style="background-color: #504441;" class="container-fluid" id="estrcard">
         <div class="card" style="--i: url({% static 'aplicacion/imagenes/poler.jpg' %}); background-color: #a38d87; height: 300px; width: 310px;">
             <div class="content">
-                <h2>Polera</h2>
-                <a href="#">Ver Detalles</a>
+                <h2>Poleras</h2>
+                <a href="{% url 'poleras' %}">Ver Detalles</a>
             </div>
         </div>
         <div class="card" style="--i: url({% static 'aplicacion/imagenes/poleron2.jpg' %}); background-color:#a38d87; height: 300px; width: 300px;">
             <div class="content">
                 <h2>Polerones</h2>
-                <a href="#">Ver Detalles</a>
+                <a href="{% url 'polerones' %}">Ver Detalles</a>
             </div>
         </div>
         <div class="card" style="--i: url( {% static 'aplicacion/imagenes/funko pop.jpg' %}); background-color: #a38d87; height: 300px; width: 250px;">
             <div class="content">
                 <h2>Funkos</h2>
-                <a href="#">Ver Detalles</a>
+                <a href="{% url 'funko' %}">Ver Detalles</a>
             </div>
         </div>
         <div class="card" style="--i: url({% static 'aplicacion/imagenes/bolso.jpg' %});  background-color: #a38d87; height: 300px; width: 250px;">
             <div class="content">
                 <h2>Más</h2>
-                <a href="#">Ver Detalles</a>
+                <a href="{% url 'mas' %}">Ver Detalles</a>
             </div>
         </div>
     </div>
