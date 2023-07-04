@@ -150,3 +150,6 @@ def AgregarProducto(request):
         contexto['msg'] = 'Plato guardado correctamente'
     
     return render(request, 'aplicacion/crud_producto/agregar.html', contexto)
+
+def carrito(request):
+    return render(request, 'aplicacion/carrito/carri.html')
