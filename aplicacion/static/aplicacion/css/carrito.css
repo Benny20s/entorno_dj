@@ -24,4 +24,6 @@
     background-color: red;
     width: 100px;
     color: white;
+    text-align: center;
+    justify-content: center;
 }
