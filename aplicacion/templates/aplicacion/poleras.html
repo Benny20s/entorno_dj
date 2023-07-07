@@ -20,6 +20,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{pol.nombre}}</h5>
                 <p class="card-text">{{pol.descripcion}}</p>
+                <p class="card-text">${{pol.precio}}</p>
                 <a href="{% url 'agregar_carrito' pol.id %}" class="btn btn-primary">Comprar</a>
             </div>
         </div>

@@ -45,10 +45,16 @@
                 <a class="boton" href="{% url 'eliminar_carrito' elemento.producto.id %}">eliminar</a>
             </div>
             {% endfor %}
-            <div class="center">
-                <input class="boton" type="submit" value="Comprar">
+            <div class="text-center p-2 0">
+                <small>Total:</small>
+                <p></p>
             </div>
-            
+            <div class="text-center p-4">
+                <input class="boton" type="submit" value="Comprar" style="background-color: aqua; color: black;">
+            </div>
+            <div class="p-3">
+
+            </div>
         </form>
         {% endif %}
     </div>

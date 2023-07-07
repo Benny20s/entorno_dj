@@ -162,13 +162,13 @@ def carrito(request):
     carrito, created = CarritoCompra.objects.get_or_create(cliente=usuario, estado='PENDIENTE')
     
     elemento_carrito = ElementoCarrito.objects.filter(carrito=carrito)
-    
+
+
     if elemento_carrito.exists():
         #Esto pasara si existen productos en el carrito
         data['elemento_carrito'] = elemento_carrito
         rango_cantidad = range(1, max(elemento.producto.stock for elemento in elemento_carrito) + 1)
         data['rango_cantidad'] = rango_cantidad
-        
         #Esto pasara cuando presione el boton comprar 
         if request.method == 'POST':
             #AQUI SE AÑADE EL CODIGO DE COMPRAR
@@ -186,6 +186,7 @@ def carrito(request):
             carrito.estado = "FINALIZADO"
             carrito.cancular_totalV()
             carrito.save()
+            
 
             return redirect(to="inicio")
     return render(request, 'aplicacion/carrito/carri.html', data)
