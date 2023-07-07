@@ -1,0 +1,48 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'aplicacion/css/card.css' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+<img src="{% static 'aplicacion/imagenes/Diseño sin título.png' %}" style="max-width:100%; width: auto; height:auto;">
+
+<div class="container-fluid p-5">
+    <h2 style="font-family: 'Rokkitt'; font-size: 60px;" class="text-center"><u>PRODUCTOS</u></h2>
+    <div>
+        <p style="font-family:'Courier New', Courier, monospace; font-size: 30px;" class="text-center p-4"><b>Aquí
+                encontrarás los distintos productos que ofrecemos para tí</b></p>
+    </div>
+    <div style="background-color: #504441;" class="container-fluid" id="estrcard">
+        <div class="card" style="--i: url({% static 'aplicacion/imagenes/poler.jpg' %}); background-color: #a38d87; height: 300px; width: 310px;">
+            <div class="content">
+                <h2>Poleras</h2>
+                <a href="{% url 'poleras' %}" style= "color: white;">Ver Detalles</a>
+            </div>
+        </div>
+        <div class="card" style="--i: url({% static 'aplicacion/imagenes/poleron2.jpg' %}); background-color:#a38d87; height: 300px; width: 300px;">
+            <div class="content">
+                <h2>Polerones</h2>
+                <a href="{% url 'polerones' %}" style= "color: white;">Ver Detalles</a>
+            </div>
+        </div>
+        <div class="card" style="--i: url( {% static 'aplicacion/imagenes/funko pop.jpg' %}); background-color: #a38d87; height: 300px; width: 250px;">
+            <div class="content">
+                <h2>Funkos</h2>
+                <a href="{% url 'funko' %}" style= "color: white;">Ver Detalles</a>
+            </div>
+        </div>
+        <div class="card" style="--i: url({% static 'aplicacion/imagenes/bolso.jpg' %});  background-color: #a38d87; height: 300px; width: 250px;">
+            <div class="content">
+                <h2>Más</h2>
+                <a href="{% url 'mas' %}" style= "color: white;">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock contenido %}

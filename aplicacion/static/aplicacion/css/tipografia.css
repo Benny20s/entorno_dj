@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Rokkitt';
+    src: url('Rokkitt-Regular.woff2') format('woff2'),
+        url('Rokkitt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('Cinzel-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

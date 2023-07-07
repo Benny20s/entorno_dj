@@ -1,0 +1,53 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+
+<div class="container-fluid p-4">
+    <h2  id="encab" class="text-center"><u>Polerones</u></h2>
+</div>
+{%for plr in polerones %}
+    <div class="row justify-content-center ">
+        <div class="card papel" style="width: 20vw;">
+        <img class="card-img-top" src="{{plr.imagen}}" alt="lady-gaga">
+            <div class="card-body">
+                <h5 class="card-title">{{plr.nombre}}</h5>
+                <p class="card-text">{{plr.descripcion}}</p>
+                <p class="card-text">${{plr.precio}}</p>
+                <a href="{% url 'agregar_carrito' plr.id %}" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
+    </div>
+{%endfor%}
+{% comment %} 
+<div class="container-fluid">
+    <div class="row justify-content-center ">
+        <div class="card papel" style="width: 20vw;">
+            <img src="{% static "aplicacion/imagenes/poleron.jpg" %}" class="card-img-top" alt="..." width="30vw" >
+            <div class="card-body">
+                <h5 class="card-title">Poleron Mike</h5>
+                <p class="card-text">TALLAS: S-M-L Color Blanco Disponible $9.990.</p>
+                <a href="compra.html" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
+        <div class="card papel" style="width: 20vw;">
+            <img src=" {% static "aplicacion/imagenes/poleron1.jpg" %}" class="card-img-top" alt="..." width="30vw" >
+            <div class="card-body">
+                <h5 class="card-title">Poleron Britney Bitch</h5>
+                <p class="card-text">TALLAS: S-M-L Color Blanco Disponible $9.990.</p>
+                <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
+        <div class="card papel" style="width: 20vw;">
+            <img src=" {% static "aplicacion/imagenes/poleron2.jpg" %}" class="card-img-top" alt="..." width="30vw" >
+            <div class="card-body">
+                <h5 class="card-title">Poleron Dwight</h5>
+                <p class="card-text">TALLAS: S-M-L Color Blanco Disponible $9.990.</p>
+                <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endcomment %}
+{% endblock contenido %}

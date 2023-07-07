@@ -1,0 +1,23 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'aplicacion/css/agregar.css'%}">
+{% endblock css %}
+
+
+{% block contenido %}
+
+    <div id="contenido">
+        <form action="" method="post">
+            {% csrf_token %}
+            <section class="cont">
+                <h1>ELIMINAR</h1>
+                <h5>seguro que desea eliminar el producto: {{p.nombre}} de tipo: {{p.tipo_producto}}</h5>
+                <input class="boton" type="submit" value="Confirmar">
+                <a href="{% url 'ListarProducto' %}"><input class="boton" type="button" value="Cancelar"></a>
+            </section>
+        </form>
+    </div>
+
+{% endblock contenido %}

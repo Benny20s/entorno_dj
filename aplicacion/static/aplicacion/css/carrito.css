@@ -1,0 +1,29 @@
+#contenedor-general {
+    box-shadow: 10px 13px 10px #000000;
+    border-radius: 4px ;
+}
+
+.carrito-producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    border-radius: 1rem;
+    width: auto;
+    background-color: #a89b9b;
+    font-family: 'calibri';
+}
+
+.carrito-producto small {
+    font-size: .75rem;
+}
+
+.boton{
+    background-color: red;
+    width: 100px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
