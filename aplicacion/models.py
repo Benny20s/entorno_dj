@@ -7,7 +7,7 @@ import uuid
 class Producto(models.Model):
     id=models.UUIDField(primary_key=True, default=uuid.uuid4)
     precio=models.IntegerField(null=False, default=1)
-    stock = models.IntegerField(null=False, default=1)
+    stock = models.BigIntegerField(null=False, default=1)
     nombre=models.CharField(max_length=50)
     descripcion=models.CharField(max_length=100)
     color=models.CharField(max_length=20)
@@ -24,7 +24,7 @@ class Producto(models.Model):
         return str(f'{self.nombre}')
 
 class CarritoCompra(models.Model):
-    id_carrito = models.UUIDField(primary_key=True, default=uuid.uuid4())
+    id_carrito = models.UUIDField(primary_key=True, default=uuid.uuid4)
     cliente = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     productos = models.ManyToManyField(Producto, through='ElementoCarrito')
     total_venta = models.DecimalField(max_digits=8, decimal_places=2, default=0)

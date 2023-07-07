@@ -172,7 +172,22 @@ def carrito(request):
         #Esto pasara cuando presione el boton comprar 
         if request.method == 'POST':
             #AQUI SE AÑADE EL CODIGO DE COMPRAR
-            pass
+            for elemento in elemento_carrito:
+                cantidad = request.POST.get('cantidad_{}'.format(elemento.producto.id))
+                print(cantidad)
+                elemento.cantidad = int(cantidad)
+                elemento.calcular_subT()
+                elemento.save()
+                producto = Producto.objects.get(id=elemento.producto.id)
+                cantidad_int = int(cantidad)
+                producto.stock -= cantidad_int
+                producto.save()
+
+            carrito.estado = "FINALIZADO"
+            carrito.cancular_totalV()
+            carrito.save()
+
+            return redirect(to="inicio")
     return render(request, 'aplicacion/carrito/carri.html', data)
 
 def agregar_carrito(request, id):
@@ -182,6 +197,7 @@ def agregar_carrito(request, id):
     usuario = User.objects.get(username=request.user.username)
     
     carrito, created = CarritoCompra.objects.get_or_create(cliente=usuario, estado='PENDIENTE')
+    print(carrito.id_carrito)
     elemento_carrito, created = ElementoCarrito.objects.get_or_create(carrito=carrito, producto=producto)
     
     if not created:
@@ -204,3 +220,7 @@ def eliminar_carrito(request, id):
     
     elemento_carrito.delete()
     return redirect(to='carrito')
+
+def cerrar_sesion(request):
+    logout(request)
+    return redirect(to='inicio')
