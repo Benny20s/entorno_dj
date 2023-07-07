@@ -7,17 +7,17 @@
 <div class="container-fluid p-4">
     <h2  id="encab" class="text-center"><u>Funkos</u></h2>
 </div>
-{%for fun in Funko %}
-
-<div class="row justify-content-center ">
-    <div class="card papel" style="width: 20vw;">
-        <div class="card-body">
-            <h5 class="card-title">{{fun.nombre}}</h5>
-            <p class="card-text">{{fun.descripcion}}</p>
-            <a href="compra.html" class="btn btn-primary">Comprar</a>
+{%for fun in funko %}
+    <div class="row justify-content-center ">
+        <div class="card papel" style="width: 20vw;">
+        <img class="card-img-top" src="{{fun.imagen}}" alt="lady-gaga">
+            <div class="card-body">
+                <h5 class="card-title">{{fun.nombre}}</h5>
+                <p class="card-text">{{fun.descripcion}}</p>
+                <a href="{% url 'agregar_carrito' fun.id %}" class="btn btn-primary">Comprar</a>
+            </div>
         </div>
     </div>
-</div>
 {%endfor%}
 {% comment %}
 <div class="container-fluid">

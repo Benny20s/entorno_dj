@@ -45,8 +45,11 @@
                     <li class="nav-item">
                         <a id="navli" class="nav-link" href="{% url 'mas' %}">Más</a>
                     </li>
-                    <ul class="navbar-nav">
-                        {% if user.is_authenticated %}
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a id="navli" class="nav-link" href="{% url 'ListarProducto' %}">Productos</a>
+                        </li>
+                        <ul class="navbar-nav">
                             <li>
                                 <a href="{% url 'carrito' %}" class="nav-link" style="color: white" id="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
@@ -54,7 +57,7 @@
                                     </svg><span class="numerito p-1">0</span>
                                 </a>
                             </li>
-                        {% endif %}
+                    {% endif %}
                             <!-- aqui esta el boton de la cuenta -->
                             <a href="{% url 'cuenta' %}" class="nav-link" style="color: white" id="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

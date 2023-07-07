@@ -47,9 +47,13 @@ class ElementoCarrito(models.Model):
     carrito = models.ForeignKey(CarritoCompra, on_delete=models.PROTECT)
     producto = models.ForeignKey(Producto, on_delete=models.PROTECT)
     cantidad = models.DecimalField(max_digits=3, decimal_places=0, default=1)
-    sub_total = models.DecimalField(max_digits=8, decimal_places=2)
+    sub_total = models.DecimalField(max_digits=8, decimal_places=2, default=0)
     
     def calcular_subT(self):
         self.sub_total = self.cantidad*self.producto.precio
+    
+    def __str__(self):
+        return str(f'{self.producto.nombre} - carrito de: {self.carrito.cliente.username} - ({self.carrito.estado})')
+    
 
 

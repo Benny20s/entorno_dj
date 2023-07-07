@@ -7,18 +7,17 @@
 <div class="container-fluid p-4">
     <h2  id="encab" class="text-center"><u>Polerones</u></h2>
 </div>
-{%for plr in Polerones %}
-
-<div class="row justify-content-center ">
-    <div class="card papel" style="width: 20vw;">
-    <img class="card-img-top" src=" {% static "imagenes/poleron1.jpg" %}" alt="lady-gaga">
-        <div class="card-body">
-            <h5 class="card-title">{{plr.nombre}}</h5>
-            <p class="card-text">{{plr.descripcion}}</p>
-            <a href="compra.html" class="btn btn-primary">Comprar</a>
+{%for plr in polerones %}
+    <div class="row justify-content-center ">
+        <div class="card papel" style="width: 20vw;">
+        <img class="card-img-top" src="{{plr.imagen}}" alt="lady-gaga">
+            <div class="card-body">
+                <h5 class="card-title">{{plr.nombre}}</h5>
+                <p class="card-text">{{plr.descripcion}}</p>
+                <a href="{% url 'agregar_carrito' plr.id %}" class="btn btn-primary">Comprar</a>
+            </div>
         </div>
     </div>
-</div>
 {%endfor%}
 {% comment %} 
 <div class="container-fluid">

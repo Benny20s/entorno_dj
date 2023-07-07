@@ -9,7 +9,7 @@ def inicio(request):
     return render(request, 'aplicacion/inicio.html')
 
 def Poleras(request):
-    Poleras= Producto.objects.filter(tipo_producto='PA')
+    Poleras= Producto.objects.filter(tipo_producto='POLERAS')
 
     contexto={
         "polera": Poleras
@@ -17,7 +17,7 @@ def Poleras(request):
     return render(request, 'aplicacion/poleras.html', contexto)
 
 def Polerones(request):
-    Polerones=Producto.objects.filter(tipo_producto='PO')
+    Polerones=Producto.objects.filter(tipo_producto='POLERON')
 
     contexto={
         "polerones": Polerones
@@ -25,7 +25,7 @@ def Polerones(request):
     return render(request, 'aplicacion/polerones.html', contexto)
 
 def Funko(request):
-    Funko=Producto.objects.filter(tipo_producto='F')
+    Funko=Producto.objects.filter(tipo_producto='FUNKO')
 
     contexto={
         "funko": Funko
@@ -33,7 +33,7 @@ def Funko(request):
     return render(request, 'aplicacion/funko.html', contexto)
 
 def Mas(request):
-    Mas=Producto.objects.filter(tipo_producto='M')
+    Mas=Producto.objects.filter(tipo_producto='MAS')
 
     contexto={
         "mas": Mas
@@ -147,14 +147,15 @@ def AgregarProducto(request):
         product.imagen = img
         product.save()
         
-        contexto['msg'] = 'Plato guardado correctamente'
+        contexto['msg'] = 'Producto guardado correctamente'
     
     return render(request, 'aplicacion/crud_producto/agregar.html', contexto)
 
 def carrito(request):
     data = {
         'elemento_carrito': None,
-        'rango_cantidad': None
+        'rango_cantidad': None,
+        'mensaje_error': ''
     }
     
     usuario = User.objects.get(username=request.user.username)
@@ -165,16 +166,18 @@ def carrito(request):
     if elemento_carrito.exists():
         #Esto pasara si existen productos en el carrito
         data['elemento_carrito'] = elemento_carrito
-        rango_cantidad = range(1, max(elemento.producto.stock for elemento in elemento_carrito)+1)
+        rango_cantidad = range(1, max(elemento.producto.stock for elemento in elemento_carrito) + 1)
         data['rango_cantidad'] = rango_cantidad
         
         #Esto pasara cuando presione el boton comprar 
         if request.method == 'POST':
+            #AQUI SE AÑADE EL CODIGO DE COMPRAR
             pass
     return render(request, 'aplicacion/carrito/carri.html', data)
 
 def agregar_carrito(request, id):
     
+    id = uuid.UUID(id)
     producto = Producto.objects.get(id=id)
     usuario = User.objects.get(username=request.user.username)
     
@@ -183,7 +186,10 @@ def agregar_carrito(request, id):
     
     if not created:
         elemento_carrito.cantidad += 1
+        elemento_carrito.calcular_subT()
     
+    elemento_carrito.cantidad = 1
+    #print(elemento_carrito.producto.precio + ' ' + elemento_carrito.cantidad)
     elemento_carrito.calcular_subT()
     elemento_carrito.save()
     
@@ -192,7 +198,7 @@ def agregar_carrito(request, id):
 def eliminar_carrito(request, id):
     producto = Producto.objects.get(id=id)
     usuario = User.objects.get(username=request.user.username)
-    carrito = CarritoCompra.objects.get(cliente=usuario, producto=producto)
+    carrito = CarritoCompra.objects.get(cliente=usuario, estado='PENDIENTE')
     
     elemento_carrito = ElementoCarrito.objects.get(carrito=carrito, producto=producto)
     

@@ -14,27 +14,40 @@
 
     <div style="background-color: #bab2b1;" class="container p-2" id="contenedor-general">
         <!-- aqui esta el mensaje que el carrito esta vacio -->
-        <div>
-            <p style="font-family:'Courier New', Courier, monospace; font-size: 30px;" class="text-center p-4"><b>Su carrito está vacio</b></p>
-        </div>
-        <!-- aqui va el for de los productos -->
-        <div class="carrito-producto" style="margin: 10px;">
-            <img src="{% static 'aplicacion/imagenes/dundies.jpg' %}" height="150px">
-            <div class="carrito-titulo">
-                <small>Nombre</small>
-                <h2>Premio Dundie Award</h2>
+        {% if elemento_carrito == None %}
+            <div>
+                <p style="font-family:'Courier New', Courier, monospace; font-size: 30px;" class="text-center p-4"><b>Su carrito está vacio</b></p>
             </div>
-            <div class="carrito-cantidad">
-                <small>Cantidad</small>
-                <input type="text" name="cantidad" id="cantidad" placeholder="ingrese cantidad">
-            </div>
-            <div class="carrito-producto-precio">
-                <small>Precio</small>
-                <p>$27.000</p>
-            </div>
-            <a class="boton" href="#">eliminar</a>
-        </div>
+        {% else %}
+            <!-- aqui va el for de los productos -->
+            {% for elemento in elemento_carrito %}
+                <div class="carrito-producto" style="margin: 10px;">
+                    <img src="{{elemento.producto.imagen}}" height="150px">
+                    <div class="carrito-titulo">
+                        <small>Nombre</small>
+                        <h2>{{elemento.producto.nombre}}</h2>
+                    </div>
+                    <div class="carrito-cantidad">
+                        <small>Cantidad</small>
+                        <select name="" id="">
+                            {% for valor in rango_cantidad %}
+                                <option value="{{valor}}">{{valor}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="carrito-producto-precio">
+                        <small>Precio</small>
+                        <p>{{elemento.producto.precio}}</p>
+                    </div>
+                    <a class="boton" href="{% url 'eliminar_carrito' elemento.producto.id %}">eliminar</a>
+                </div>
 
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
-{% endblock contenido %}x
+{% endblock contenido %}
+
+{% block java %}
+    <script src="{% static 'aplicacion/js/carrito.js' %}"></script>
+{% endblock java %}
