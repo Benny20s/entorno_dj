@@ -152,4 +152,49 @@ def AgregarProducto(request):
     return render(request, 'aplicacion/crud_producto/agregar.html', contexto)
 
 def carrito(request):
-    return render(request, 'aplicacion/carrito/carri.html')
+    data = {
+        'elemento_carrito': None,
+        'rango_cantidad': None
+    }
+    
+    usuario = User.objects.get(username=request.user.username)
+    carrito, created = CarritoCompra.objects.get_or_create(cliente=usuario, estado='PENDIENTE')
+    
+    elemento_carrito = ElementoCarrito.objects.filter(carrito=carrito)
+    
+    if elemento_carrito.exists():
+        #Esto pasara si existen productos en el carrito
+        data['elemento_carrito'] = elemento_carrito
+        rango_cantidad = range(1, max(elemento.producto.stock for elemento in elemento_carrito)+1)
+        data['rango_cantidad'] = rango_cantidad
+        
+        #Esto pasara cuando presione el boton comprar 
+        if request.method == 'POST':
+            pass
+    return render(request, 'aplicacion/carrito/carri.html', data)
+
+def agregar_carrito(request, id):
+    
+    producto = Producto.objects.get(id=id)
+    usuario = User.objects.get(username=request.user.username)
+    
+    carrito, created = CarritoCompra.objects.get_or_create(cliente=usuario, estado='PENDIENTE')
+    elemento_carrito, created = ElementoCarrito.objects.get_or_create(carrito=carrito, producto=producto)
+    
+    if not created:
+        elemento_carrito.cantidad += 1
+    
+    elemento_carrito.calcular_subT()
+    elemento_carrito.save()
+    
+    return redirect(to='carrito')
+
+def eliminar_carrito(request, id):
+    producto = Producto.objects.get(id=id)
+    usuario = User.objects.get(username=request.user.username)
+    carrito = CarritoCompra.objects.get(cliente=usuario, producto=producto)
+    
+    elemento_carrito = ElementoCarrito.objects.get(carrito=carrito, producto=producto)
+    
+    elemento_carrito.delete()
+    return redirect(to='carrito')

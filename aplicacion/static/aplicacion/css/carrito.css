@@ -19,3 +19,11 @@
 .carrito-producto small {
     font-size: .75rem;
 }
+
+.boton{
+    background-color: red;
+    width: 100px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
