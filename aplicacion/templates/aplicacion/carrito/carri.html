@@ -1,3 +1,40 @@
 {% extends 'aplicacion/base.html' %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'aplicacion/css/carrito.css' %}">
+{% endblock css %}
+
+{% block contenido %}
+<div style="background-color: aliceblue;" class="container-fluid">
+    <div class="container-fluid p-5">
+        <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 60px;"
+            class="text-center"><u>CARRITO</u></h2>
+    </div>
+
+    <div style="background-color: #bab2b1;" class="container p-2" id="contenedor-general">
+
+        <div>
+            <p style="font-family:'Courier New', Courier, monospace; font-size: 30px;" class="text-center p-4"><b>Su carrito está vacio</b></p>
+        </div>
+
+        <div class="carrito-producto" style="margin: 10px;">
+            <img src="{% static 'aplicacion/imagenes/dundies.jpg' %}" height="150px">
+            <div class="carrito-titulo">
+                <small>Nombre</small>
+                <h2>Premio Dundie Award</h2>
+            </div>
+            <div class="carrito-cantidad">
+                <small>Cantidad</small>
+                <p>1</p>
+            </div>
+            <div class="carrito-producto-precio">
+                <small>Precio</small>
+                <p>$27.000</p>
+            </div>
+            <button>delete</button>
+        </div>
+
+    </div>
+</div>
+{% endblock contenido %}x
