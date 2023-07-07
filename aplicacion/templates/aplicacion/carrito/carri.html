@@ -13,11 +13,11 @@
     </div>
 
     <div style="background-color: #bab2b1;" class="container p-2" id="contenedor-general">
-
+        <!-- aqui esta el mensaje que el carrito esta vacio -->
         <div>
             <p style="font-family:'Courier New', Courier, monospace; font-size: 30px;" class="text-center p-4"><b>Su carrito está vacio</b></p>
         </div>
-
+        <!-- aqui va el for de los productos -->
         <div class="carrito-producto" style="margin: 10px;">
             <img src="{% static 'aplicacion/imagenes/dundies.jpg' %}" height="150px">
             <div class="carrito-titulo">
@@ -26,13 +26,13 @@
             </div>
             <div class="carrito-cantidad">
                 <small>Cantidad</small>
-                <p>1</p>
+                <input type="text" name="cantidad" id="cantidad" placeholder="ingrese cantidad">
             </div>
             <div class="carrito-producto-precio">
                 <small>Precio</small>
                 <p>$27.000</p>
             </div>
-            <button>delete</button>
+            <input class="boton" type="submit" value="eliminar">
         </div>
 
     </div>
